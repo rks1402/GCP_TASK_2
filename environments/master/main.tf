@@ -14,7 +14,7 @@ provider "google" {
 }
 
 resource "google_storage_bucket" "sql-files" {
-  name          = "sql-files"
+  name          = "sql-files-007"
   location      = var.region
   force_destroy = true
 }

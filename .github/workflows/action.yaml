@@ -16,13 +16,13 @@ jobs:
     - id: 'auth'
       uses: 'google-github-actions/auth@v1'
       with:
-  #      workload_identity_provider: 'projects/359659965310/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
-  #      service_account: 'github-action@terraform-practice-370615.iam.gserviceaccount.com'
+        workload_identity_provider: 'projects/172640458224/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
+        service_account: 'github-auth@terraform-002-376320.iam.gserviceaccount.com'
 
     - id: 'upload'
       name: Upload file to Google Cloud Storage
       uses: google-github-actions/upload-cloud-storage@v1
       with:
         path: "./cognizant_table.sql"
-        destination: "sql_files"
+        destination: "sql-files-007"
     
