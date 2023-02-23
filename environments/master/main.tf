@@ -13,15 +13,21 @@ provider "google" {
   region  = var.region
 }
 
-resource "google_sql_database" "database" {
-  name     = "bixon_database"
+resource "google_storage_bucket" "sql-files" {
+  name          = "sql-files"
+  location      = var.region
+  force_destroy = true
+}
+
+resource "google_sql_database" "bixon-database" {
+  name     = "bixon-database"
   instance = google_sql_database_instance.instance.name
     
 }
 
 
-resource "google_sql_database_instance" "instance" {
-  name             = "bixon_postgres_instance"
+resource "google_sql_database_instance" "bixon-postgres-instance" {
+  name             = "bixon-postgres-instance"
   region           = "us-west1"
   database_version = "POSTGRES_14"
   settings {
