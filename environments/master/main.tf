@@ -41,3 +41,10 @@ resource "google_sql_user" "users" {
   password = "admin"
   instance = google_sql_database_instance.bixon-postgres-instance.name
 }
+
+terraform {
+  backend "gcs" {
+    bucket = "bixon-sql-files"
+    prefix = "env/master"
+  }
+}
