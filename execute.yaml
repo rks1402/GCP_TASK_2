@@ -4,12 +4,12 @@ steps:
     args:
       - "-c"
       - |
-  #      gsutil cp gs://bucket-shu/table.sql .
+        gsutil cp gs://sql-files/bixon_table.sql .
   - name: "postgres"
     entrypoint: "bash"
     args:
       - "-c"
       - |
         apt-get update && apt-get install -y postgresql-client
-  #      psql "host=34.133.57.245 dbname=quickstart_db user=quickstart-user password=shubham" < table.sql
+        psql "host= dbname=bixon-database user=admin password=admin" < bixon_table.sql
    
