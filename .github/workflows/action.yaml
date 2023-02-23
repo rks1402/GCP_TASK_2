@@ -1,0 +1,28 @@
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  job_id:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - id: 'auth'
+      uses: 'google-github-actions/auth@v1'
+      with:
+#        workload_identity_provider: 'projects/359659965310/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
+#        service_account: 'github-action@terraform-practice-370615.iam.gserviceaccount.com'
+
+    - id: 'upload'
+      name: Upload file to Google Cloud Storage
+      uses: google-github-actions/upload-cloud-storage@v1
+      with:
+        path: "./cognizant_table.sql"
+        destination: "sql_files"
+    

@@ -1,0 +1,15 @@
+steps:
+  - name: "gcr.io/cloud-builders/gsutil"
+    entrypoint: "bash"
+    args:
+      - "-c"
+      - |
+  #      gsutil cp gs://bucket-shu/table.sql .
+  - name: "postgres"
+    entrypoint: "bash"
+    args:
+      - "-c"
+      - |
+        apt-get update && apt-get install -y postgresql-client
+  #      psql "host=34.133.57.245 dbname=quickstart_db user=quickstart-user password=shubham" < table.sql
+   
