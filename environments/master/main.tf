@@ -21,7 +21,7 @@ resource "google_storage_bucket" "sql-files" {
 
 resource "google_sql_database" "bixon-database" {
   name     = "bixon-database"
-  instance = google_sql_database_instance.instance.name
+  instance = google_sql_database_instance.bixon-postgres-instance.name
     
 }
 
@@ -39,5 +39,5 @@ resource "google_sql_database_instance" "bixon-postgres-instance" {
 resource "google_sql_user" "users" {
   name     = "admin"
   password = "admin"
-  instance = google_sql_database_instance.instance.name
+  instance = google_sql_database_instance.bixon-postgres-instance.name
 }
