@@ -44,7 +44,7 @@ resource "google_sql_user" "users" {
 
 terraform {
   backend "gcs" {
-    bucket = "bixon-sql-files"
+    bucket = "tfstate-files-007"
     prefix = "env/master"
   }
 }
